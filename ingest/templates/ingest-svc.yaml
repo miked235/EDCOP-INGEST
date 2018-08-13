@@ -14,6 +14,7 @@ spec:
   {{- if .Values.redisConfig.external.enabled }}
     nodePort: {{ .Values.redisConfig.external.port }}
   type: NodePort
+  externalTrafficPolicy: Local
   {{- end }}
   selector:
     app: {{ template "ingest.name" . }}-redis
